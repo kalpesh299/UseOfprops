@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Moveicard } from './components/Moveicard';
+import data from "./components/data.json"
 
 function App() {
+  console.log(data.movies)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+    <div className="w-screen bg-slate-500">
+     {data.movies.map((el)=>{
+            return(
+              <Moveicard year={el.release_year} poster={el.img} title={el.title} duration={el.duration_minutes} genre={el.genre} director={el.director} des={el.description}/>
+
+            )   
+    
+     })}
+
+     {/* <Moveicard/> */}
+     
     </div>
   );
 }
